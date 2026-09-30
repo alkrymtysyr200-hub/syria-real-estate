@@ -1,159 +1,959 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>منصة سورية للعقارات</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f5f6f8;
-      color: #222;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>المنصة السورية للعقارات | بيع شراء تأجير</title>
+
+<meta name="description" content="المنصة السورية للعقارات للبيع والشراء والتأجير في جميع المحافظات السورية.">
+<meta name="keywords" content="عقارات سوريا, بيع عقار, شراء عقار, إيجار, شقق, أراضي, محلات, مكاتب عقارية">
+
+<meta property="og:title" content="المنصة السورية للعقارات">
+<meta property="og:description" content="بيع وشراء وتأجير العقارات في سوريا">
+<meta property="og:type" content="website">
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Tahoma, Arial, sans-serif;
+    background: #f4f6f8;
+    color: #17202a;
+}
+
+header {
+    background: linear-gradient(135deg, #075e54, #0b8f7f);
+    color: white;
+    padding: 25px 15px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0 0 10px;
+    font-size: 30px;
+}
+
+header p {
+    margin: 5px 0;
+    opacity: .95;
+}
+
+nav {
+    background: white;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    padding: 12px;
+    box-shadow: 0 2px 8px #0001;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+nav button {
+    border: 0;
+    background: #eef4f3;
+    color: #075e54;
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+nav button:hover {
+    background: #075e54;
+    color: white;
+}
+
+.container {
+    max-width: 1150px;
+    margin: auto;
+    padding: 20px;
+}
+
+.hero {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 3px 12px #0001;
+}
+
+.hero h2 {
+    margin-top: 0;
+    color: #075e54;
+}
+
+.search-box {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccd3d8;
+    border-radius: 8px;
+    background: white;
+    font-family: inherit;
+}
+
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.btn {
+    border: 0;
+    border-radius: 8px;
+    padding: 12px 18px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-primary {
+    background: #075e54;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #064d46;
+}
+
+.btn-gold {
+    background: #d99a18;
+    color: white;
+}
+
+.btn-red {
+    background: #b83232;
+    color: white;
+}
+
+.section-title {
+    margin: 30px 0 15px;
+    color: #075e54;
+}
+
+.properties {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.card {
+    background: white;
+    border-radius: 13px;
+    overflow: hidden;
+    box-shadow: 0 3px 12px #0001;
+    position: relative;
+}
+
+.card-image {
+    height: 170px;
+    background: linear-gradient(135deg, #dfe9e7, #b8d4cf);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 55px;
+}
+
+.card-content {
+    padding: 15px;
+}
+
+.card h3 {
+    margin: 0 0 8px;
+}
+
+.price {
+    color: #075e54;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 8px 0;
+}
+
+.badge {
+    display: inline-block;
+    padding: 5px 9px;
+    border-radius: 20px;
+    background: #075e54;
+    color: white;
+    font-size: 12px;
+}
+
+.featured {
+    border: 2px solid #d99a18;
+}
+
+.pinned {
+    border: 2px solid #b83232;
+}
+
+.plans {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.plan {
+    background: white;
+    padding: 20px;
+    border-radius: 13px;
+    text-align: center;
+    box-shadow: 0 3px 12px #0001;
+    border: 2px solid transparent;
+}
+
+.plan:hover {
+    border-color: #075e54;
+}
+
+.plan h3 {
+    color: #075e54;
+}
+
+.plan .plan-price {
+    font-size: 25px;
+    font-weight: bold;
+    margin: 15px 0;
+}
+
+.payment {
+    background: #fff8e5;
+    border: 1px solid #e5c66b;
+    padding: 20px;
+    border-radius: 12px;
+    margin-top: 15px;
+}
+
+.sham-account {
+    background: #075e54;
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 10px 0;
+    font-size: 17px;
+    word-break: break-all;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.full {
+    grid-column: 1 / -1;
+}
+
+.notification {
+    background: #e9f7f4;
+    border-right: 5px solid #075e54;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.agency {
+    background: white;
+    border-radius: 13px;
+    padding: 25px;
+    box-shadow: 0 3px 12px #0001;
+}
+
+footer {
+    margin-top: 40px;
+    background: #17202a;
+    color: white;
+    padding: 25px;
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+@media(max-width: 800px) {
+    .search-box,
+    .properties,
+    .plans,
+    .form-grid {
+        grid-template-columns: 1fr;
     }
-    header {
-      background: #176b5b;
-      color: white;
-      padding: 25px;
-      text-align: center;
-    }
+
     header h1 {
-      margin: 0 0 10px;
+        font-size: 24px;
     }
-    .hero {
-      padding: 35px 20px;
-      text-align: center;
-      background: white;
-    }
-    .hero h2 {
-      color: #176b5b;
-    }
-    .buttons {
-      margin-top: 20px;
-    }
-    button {
-      border: 0;
-      padding: 13px 25px;
-      margin: 5px;
-      border-radius: 8px;
-      cursor: pointer;
-      background: #176b5b;
-      color: white;
-      font-size: 16px;
-    }
+
     .container {
-      max-width: 1000px;
-      margin: auto;
-      padding: 25px;
+        padding: 12px;
     }
-    .search {
-      background: white;
-      padding: 20px;
-      border-radius: 12px;
-      margin-bottom: 25px;
-      box-shadow: 0 2px 8px #ddd;
-    }
-    input, select {
-      padding: 12px;
-      margin: 5px;
-      border: 1px solid #ddd;
-      border-radius: 7px;
-    }
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 18px;
-    }
-    .card {
-      background: white;
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 2px 8px #ddd;
-    }
-    .card h3 {
-      color: #176b5b;
-    }
-    footer {
-      margin-top: 40px;
-      padding: 25px;
-      background: #222;
-      color: white;
-      text-align: center;
-    }
-  </style>
+}
+</style>
 </head>
 
 <body>
 
 <header>
-  <h1>🏠 المنصة السورية للعقارات</h1>
-  <p>بيع • شراء • تأجير العقارات في سوريا</p>
+    <h1>🏠 المنصة السورية للعقارات</h1>
+    <p>بيع • شراء • تأجير العقارات في سوريا</p>
+    <p>منصة عقارية سورية متطورة للإعلانات والأفراد والمكاتب والشركات</p>
 </header>
 
-<section class="hero">
-  <h2>ابحث عن عقارك بسهولة</h2>
-  <p>منصة سورية حديثة للعقارات والإعلانات</p>
-
-  <div class="buttons">
-    <button>بيع عقار</button>
-    <button>شراء عقار</button>
-    <button>تأجير عقار</button>
-    <button>نشر إعلان</button>
-  </div>
-</section>
+<nav>
+    <button onclick="showSection('home')">الرئيسية</button>
+    <button onclick="showSection('publish')">➕ نشر إعلان</button>
+    <button onclick="showSection('plans')">💰 الأسعار</button>
+    <button onclick="showSection('agencies')">🏢 المكاتب العقارية</button>
+    <button onclick="showSection('notifications')">🔔 الإشعارات</button>
+</nav>
 
 <div class="container">
 
-  <div class="search">
-    <h2>🔎 البحث عن عقار</h2>
-    <input type="text" placeholder="المدينة أو المنطقة">
-    <select>
-      <option>نوع العقار</option>
-      <option>منزل</option>
-      <option>شقة</option>
-      <option>أرض</option>
-      <option>محل تجاري</option>
-      <option>مكتب</option>
-    </select>
-    <select>
-      <option>نوع العملية</option>
-      <option>بيع</option>
-      <option>شراء</option>
-      <option>إيجار</option>
-    </select>
-    <button>بحث</button>
-  </div>
+<section id="home">
 
-  <h2>العقارات المميزة</h2>
+    <div class="hero">
+        <h2>🔎 ابحث عن عقارك</h2>
 
-  <div class="cards">
+        <div class="search-box">
 
-    <div class="card">
-      <h3>🏡 منزل للبيع</h3>
-      <p>منزل سكني في سوريا</p>
-      <strong>السعر: قابل للتفاوض</strong>
+            <select id="searchGovernorate" onchange="updateSearchAreas()">
+                <option value="">كل المحافظات</option>
+                <option>دمشق</option>
+                <option>ريف دمشق</option>
+                <option>حلب</option>
+                <option>حمص</option>
+                <option>حماة</option>
+                <option>اللاذقية</option>
+                <option>طرطوس</option>
+                <option>إدلب</option>
+                <option>دير الزور</option>
+                <option>الرقة</option>
+                <option>الحسكة</option>
+                <option>درعا</option>
+                <option>السويداء</option>
+                <option>القنيطرة</option>
+            </select>
+
+            <select id="searchArea">
+                <option value="">كل المناطق</option>
+            </select>
+
+            <select id="searchType">
+                <option value="">كل أنواع العقارات</option>
+                <option>شقة</option>
+                <option>منزل</option>
+                <option>أرض</option>
+                <option>محل تجاري</option>
+                <option>مكتب</option>
+                <option>مزرعة</option>
+                <option>مستودع</option>
+                <option>فيلا</option>
+            </select>
+
+            <select id="searchOperation">
+                <option value="">بيع أو إيجار</option>
+                <option>بيع</option>
+                <option>إيجار</option>
+            </select>
+
+        </div>
+
+        <br>
+
+        <input
+            id="keyword"
+            placeholder="اكتب كلمة مثل: شقة دمشق، أرض الرقة، محل حلب..."
+        >
+
+        <br><br>
+
+        <button class="btn btn-primary" onclick="searchProperties()">
+            🔍 بحث
+        </button>
+
     </div>
 
-    <div class="card">
-      <h3>🏢 شقة للإيجار</h3>
-      <p>شقة سكنية بموقع مميز</p>
-      <strong>السعر: بالليرة السورية</strong>
+    <h2 class="section-title">🏘️ أحدث العقارات</h2>
+
+    <div id="propertyList" class="properties"></div>
+
+</section>
+
+
+<section id="publish" class="hidden">
+
+    <div class="hero">
+
+        <h2>➕ نشر إعلان عقاري</h2>
+
+        <div class="form-grid">
+
+            <div>
+                <label>عنوان الإعلان</label>
+                <input id="title" placeholder="مثال: شقة للبيع في دمشق">
+            </div>
+
+            <div>
+                <label>نوع العقار</label>
+                <select id="type">
+                    <option>شقة</option>
+                    <option>منزل</option>
+                    <option>أرض</option>
+                    <option>محل تجاري</option>
+                    <option>مكتب</option>
+                    <option>مزرعة</option>
+                    <option>مستودع</option>
+                    <option>فيلا</option>
+                </select>
+            </div>
+
+            <div>
+                <label>العملية</label>
+                <select id="operation">
+                    <option>بيع</option>
+                    <option>إيجار</option>
+                </select>
+            </div>
+
+            <div>
+                <label>المحافظة</label>
+                <select id="governorate" onchange="updatePublishAreas()">
+                    <option value="">اختر المحافظة</option>
+                    <option>دمشق</option>
+                    <option>ريف دمشق</option>
+                    <option>حلب</option>
+                    <option>حمص</option>
+                    <option>حماة</option>
+                    <option>اللاذقية</option>
+                    <option>طرطوس</option>
+                    <option>إدلب</option>
+                    <option>دير الزور</option>
+                    <option>الرقة</option>
+                    <option>الحسكة</option>
+                    <option>درعا</option>
+                    <option>السويداء</option>
+                    <option>القنيطرة</option>
+                </select>
+            </div>
+
+            <div>
+                <label>المنطقة</label>
+                <select id="area">
+                    <option value="">اختر المنطقة</option>
+                </select>
+            </div>
+
+            <div>
+                <label>السعر</label>
+                <input id="price" placeholder="مثال: 150000000">
+            </div>
+
+            <div class="full">
+                <label>وصف العقار</label>
+                <textarea id="description" placeholder="اكتب تفاصيل العقار والمساحة والموقع..."></textarea>
+            </div>
+
+            <div>
+                <label>اسم المعلن</label>
+                <input id="seller" placeholder="الاسم">
+            </div>
+
+            <div>
+                <label>رقم التواصل</label>
+                <input id="phone" placeholder="رقم الهاتف أو واتساب">
+            </div>
+
+        </div>
+
+        <h3 class="section-title">اختر نوع الإعلان</h3>
+
+        <div class="plans">
+
+            <div class="plan">
+                <h3>🆓 عادي</h3>
+                <div class="plan-price">مجاني</div>
+                <p>نشر الإعلان بشكل عادي</p>
+                <button class="btn btn-primary" onclick="selectPlan('مجاني',0)">
+                    اختيار
+                </button>
+            </div>
+
+            <div class="plan">
+                <h3>⭐ مميز</h3>
+                <div class="plan-price">50,000 ل.س</div>
+                <p>ظهور أفضل لمدة 7 أيام</p>
+                <button class="btn btn-gold" onclick="selectPlan('مميز 7 أيام',50000)">
+                    اختيار
+                </button>
+            </div>
+
+            <div class="plan">
+                <h3>📌 مثبت</h3>
+                <div class="plan-price">80,000 ل.س</div>
+                <p>ظهور في أعلى النتائج 7 أيام</p>
+                <button class="btn btn-red" onclick="selectPlan('مثبت 7 أيام',80000)">
+                    اختيار
+                </button>
+            </div>
+
+        </div>
+
+        <div id="paymentBox" class="payment hidden">
+
+            <h3>💳 الدفع عبر شام كاش</h3>
+
+            <p>
+                قيمة الباقة المختارة:
+                <strong id="selectedPrice"></strong>
+                ل.س
+            </p>
+
+            <p>حوّل المبلغ إلى حساب شام كاش التالي:</p>
+
+            <div class="sham-account">
+                9a4550c00144ad5fccb0cafb4377f0ee
+            </div>
+
+            <p>
+                بعد التحويل، أدخل رقم العملية أدناه حتى تتم مراجعة الإعلان.
+            </p>
+
+            <input id="transaction"
+                   placeholder="رقم عملية التحويل">
+
+            <br><br>
+
+            <button class="btn btn-primary" onclick="publishProperty()">
+                ✅ إرسال الإعلان للمراجعة
+            </button>
+
+        </div>
+
     </div>
 
-    <div class="card">
-      <h3>🌳 أرض للبيع</h3>
-      <p>أرض مناسبة للاستثمار</p>
-      <strong>السعر: قابل للتفاوض</strong>
+</section>
+
+
+<section id="plans" class="hidden">
+
+    <div class="hero">
+
+        <h2>💰 أسعار الإعلانات</h2>
+
+        <div class="plans">
+
+            <div class="plan">
+                <h3>🆓 الإعلان العادي</h3>
+                <div class="plan-price">مجاني</div>
+                <p>نشر العقار بدون رسوم</p>
+            </div>
+
+            <div class="plan">
+                <h3>⭐ مميز 7 أيام</h3>
+                <div class="plan-price">50,000 ل.س</div>
+                <p>ظهور أفضل في نتائج البحث</p>
+            </div>
+
+            <div class="plan">
+                <h3>⭐ مميز 30 يومًا</h3>
+                <div class="plan-price">120,000 ل.س</div>
+                <p>ترويج لمدة شهر</p>
+            </div>
+
+            <div class="plan">
+                <h3>📌 مثبت 7 أيام</h3>
+                <div class="plan-price">80,000 ل.س</div>
+                <p>ظهور أعلى النتائج</p>
+            </div>
+
+            <div class="plan">
+                <h3>📌 مثبت 30 يومًا</h3>
+                <div class="plan-price">200,000 ل.س</div>
+                <p>تثبيت لمدة شهر</p>
+            </div>
+
+            <div class="plan">
+                <h3>🏢 مكتب عقاري</h3>
+                <div class="plan-price">500,000 ل.س</div>
+                <p>باقة شهرية للمكاتب العقارية</p>
+            </div>
+
+            <div class="plan">
+                <h3>🏗️ شركة / مشروع</h3>
+                <div class="plan-price">750,000 ل.س</div>
+                <p>إعلان تجاري لمدة شهر</p>
+            </div>
+
+        </div>
+
     </div>
 
-  </div>
+</section>
+
+
+<section id="agencies" class="hidden">
+
+    <div class="agency">
+
+        <h2>🏢 المكاتب والشركات العقارية</h2>
+
+        <p>
+            مساحة خاصة للمكاتب العقارية والشركات لعرض عقاراتهم
+            والحصول على باقات إعلانية شهرية.
+        </p>
+
+        <button class="btn btn-primary"
+                onclick="showSection('publish')">
+            طلب باقة مكتب عقاري
+        </button>
+
+    </div>
+
+</section>
+
+
+<section id="notifications" class="hidden">
+
+    <div class="hero">
+
+        <h2>🔔 الإشعارات</h2>
+
+        <div id="notificationsList">
+
+            <div class="notification">
+                مرحبًا بك في المنصة السورية للعقارات.
+            </div>
+
+            <div class="notification">
+                يمكنك نشر إعلان مجاني أو اختيار إعلان مميز ومدفوع.
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
 
 </div>
 
+
 <footer>
-  <p>© 2026 المنصة السورية للعقارات</p>
-  <p>بيع • شراء • تأجير • إعلانات عقارية</p>
+
+    <strong>المنصة السورية للعقارات</strong>
+
+    <p>
+        بيع • شراء • تأجير • مكاتب عقارية • إعلانات مدفوعة
+    </p>
+
+    <p>
+        © 2026 جميع الحقوق محفوظة
+    </p>
+
 </footer>
 
-</body>
-</html>
+
+<script>
+
+const areas = {
+
+    "دمشق": [
+        "المزة",
+        "كفرسوسة",
+        "المالكي",
+        "برزة",
+        "ركن الدين",
+        "الميدان",
+        "القدم"
+    ],
+
+    "ريف دمشق": [
+        "جرمانا",
+        "دوما",
+        "حرستا",
+        "داريا",
+        "صحنايا",
+        "قطنا"
+    ],
+
+    "حلب": [
+        "وسط المدينة",
+        "الحمدانية",
+        "الجميلية",
+        "السليمانية",
+        "السكري"
+    ],
+
+    "حمص": [
+        "حمص المدينة",
+        "الرستن",
+        "تلبيسة",
+        "القصير"
+    ],
+
+    "حماة": [
+        "حماة المدينة",
+        "مصياف",
+        "السلمية",
+        "محردة"
+    ],
+
+    "اللاذقية": [
+        "اللاذقية المدينة",
+        "جبلة",
+        "القرداحة"
+    ],
+
+    "طرطوس": [
+        "طرطوس المدينة",
+        "بانياس",
+        "صافيتا"
+    ],
+
+    "إدلب": [
+        "إدلب المدينة",
+        "الدانا",
+        "سرمدا",
+        "معرة مصرين"
+    ],
+
+    "دير الزور": [
+        "دير الزور المدينة",
+        "الميادين",
+        "البوكمال"
+    ],
+
+    "الرقة": [
+        "الرقة المدينة",
+        "تل أبيض",
+        "عين عيسى",
+        "الطبقة"
+    ],
+
+    "الحسكة": [
+        "الحسكة المدينة",
+        "القامشلي",
+        "رأس العين",
+        "المالكية"
+    ],
+
+    "درعا": [
+        "درعا المدينة",
+        "إزرع",
+        "الصنمين"
+    ],
+
+    "السويداء": [
+        "السويداء المدينة",
+        "شهبا",
+        "صلخد"
+    ],
+
+    "القنيطرة": [
+        "القنيطرة",
+        "خان أرنبة"
+    ]
+};
+
+
+let properties = [
+
+    {
+        title: "شقة للبيع في دمشق",
+        type: "شقة",
+        operation: "بيع",
+        governorate: "دمشق",
+        area: "المزة",
+        price: "250,000,000",
+        description: "شقة سكنية مناسبة للعائلة.",
+        seller: "معلن",
+        phone: "",
+        plan: "مميز 7 أيام",
+        featured: true
+    },
+
+    {
+        title: "أرض للبيع في الرقة",
+        type: "أرض",
+        operation: "بيع",
+        governorate: "الرقة",
+        area: "الرقة المدينة",
+        price: "100,000,000",
+        description: "أرض مناسبة للاستثمار.",
+        seller: "معلن",
+        phone: "",
+        plan: "مجاني",
+        featured: false
+    },
+
+    {
+        title: "محل تجاري للإيجار في حلب",
+        type: "محل تجاري",
+        operation: "إيجار",
+        governorate: "حلب",
+        area: "وسط المدينة",
+        price: "1,500,000 شهريًا",
+        description: "محل تجاري في موقع جيد.",
+        seller: "معلن",
+        phone: "",
+        plan: "مثبت 7 أيام",
+        pinned: true
+    }
+
+];
+
+
+let selectedPlan = "مجاني";
+let selectedPrice = 0;
+
+
+function showSection(id) {
+
+    document
+        .querySelectorAll("section")
+        .forEach(section => section.classList.add("hidden"));
+
+    document
+        .getElementById(id)
+        .classList.remove("hidden");
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+
+function fillAreas(selectId, governorate) {
+
+    const select = document.getElementById(selectId);
+
+    select.innerHTML = '<option value="">اختر المنطقة</option>';
+
+    if (areas[governorate]) {
+
+        areas[governorate].forEach(area => {
+
+            const option = document.createElement("option");
+
+            option.value = area;
+            option.textContent = area;
+
+            select.appendChild(option);
+
+        });
+
+    }
+}
+
+
+function updateSearchAreas() {
+
+    const governorate =
+        document.getElementById("searchGovernorate").value;
+
+    fillAreas("searchArea", governorate);
+}
+
+
+function updatePublishAreas() {
+
+    const governorate =
+        document.getElementById("governorate").value;
+
+    fillAreas("area", governorate);
+}
+
+
+function selectPlan(plan, price) {
+
+    selectedPlan = plan;
+    selectedPrice = price;
+
+    document
+        .getElementById("paymentBox")
+        .classList.remove("hidden");
+
+    document
+        .getElementById("selectedPrice")
+        .textContent = price.toLocaleString("ar-SY");
+
+    if (price === 0) {
+
+        document
+            .getElementById("paymentBox")
+            .classList.remove("payment");
+
+        document
+            .getElementById("paymentBox")
+            .classList.add("payment");
+
+        document.querySelector("#paymentBox p:nth-of-type(2)")
+            .textContent = "الإعلان مجاني، لا يوجد تحويل مطلوب.";
+
+        document
+            .getElementById("transaction")
+            .value = "إعلان مجاني";
+
+    } else {
+
+        document
+            .getElementById("paymentBox")
+            .classList.add("payment");
+
+        document.querySelector("#paymentBox p:nth-of-type(2)")
+            .textContent =
+            "حوّل المبلغ إلى حساب شام كاش التالي:";
+
+        document
+            .getElementById("transaction")
+            .value = "";
+
+    }
+
+    document
+        .getElementById("paymentBox")
+        .scrollIntoView({
+            behavior: "smooth"
+        });
+}
+
+
+function publishProperty() {
+
+    const title =
+        document.getElementById("title").value.trim();
+
+    const type =
+        document.getElementById("type").value;
+
+    const operation =
+        document.getElementById("operation").value;
+
+    const governorate =
+        document.getElementById("governorate").value;
+
+    const area =
+        document.getElementById("area").value;
+
+    const price =
+        document.getElementById("price").value.trim();
+
+    const description =
+        document.getElementById("description").value.trim();
+
+    const seller =
+        document.getElementById("seller").value.trim();
+
+    const phone =
+        document.getElementById("phone").value.trim();
+
+    const transaction =
+        document.getElementById("trans
